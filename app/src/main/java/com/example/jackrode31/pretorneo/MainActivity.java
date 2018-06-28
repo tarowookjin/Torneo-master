@@ -1,5 +1,6 @@
 package com.example.jackrode31.pretorneo;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button listar, verificar, volver;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,52 +22,28 @@ public class MainActivity extends AppCompatActivity {
 
         listar = findViewById(R.id.listarbtn);
         verificar = findViewById(R.id.verificarbtn);
-        volver = findViewById(R.id.volverbtn);
+
+
+
 
         verificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.verificar);
 
-                Button verificar2;
-                TextView resultado;
-                EditText input;
-
-                verificar2 = findViewById(R.id.verificarbtn2);
-                resultado = findViewById(R.id.result);
-                input = findViewById(R.id.inputNumber);
-
-                volver();
-
-
-
+                Intent i = new Intent(MainActivity.this, Verificar.class);
+                startActivity(i);
             }
         });
 
         listar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.listar);
 
-                Button listar2;
-                TextView resultadolista;
-                EditText inputlista;
-
-                listar2 = findViewById(R.id.listarbtn2);
-                resultadolista = findViewById(R.id.resultLista);
-                inputlista = findViewById(R.id.inputlista);
-
-            }
-        });
+                Intent intent = new Intent(MainActivity.this, Listar.class);
+                startActivity(intent);
 
 
-    }
-    public void volver(){
 
-        volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setContentView(R.layout.activity_main);
             }
         });
 
